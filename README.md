@@ -83,15 +83,3 @@ This component is responsible for displaying the list of customers on the left s
 ### CustomerDetails
 
 This component displays detailed information about the selected customer, including their name, title, address, and a 3x3 grid of images. It fetches new images every 10 seconds and also when a new customer is selected.
-
-#### Props
-
-- `customer`: The currently selected customer object.
-
-### Utility Functions
-
-- `shuffleArray`: A utility function used to shuffle an array. This is used to shuffle the images before displaying them in the grid.
-
-## License
-
-This project is licensed under the MIT License - see the `LICENSE` file for details.
