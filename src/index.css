@@ -1,13 +1,101 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap');
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+  font-family: "Roboto Condensed", 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #f7f2fd;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.app {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+header {
+  width: 100%;
+  text-align: center;
+  margin: 10px 0;
+}
+
+.heading {
+  font-size: 4rem;
+  font-weight: bold;
+  color:#3a0764;
+}
+
+.content {
+  display: flex;
+  width: 100%;
+}
+
+
+.customer-list {
+  margin: 0px 100px;
+  width: 25%;
+  height: 75vh;
+  overflow-y: scroll;
+  background-color: #f4f4f4;
+  padding: 10px;
+}
+
+.customer-card {
+  padding: 10px;
+  margin-bottom: 5px;
+  background-color: #e9d5ff;
+  cursor: pointer;
+  border: 1px solid #ddd;
+}
+
+.customer-name{
+  color: #3a0764;
+}
+.customer-title{
+  color: #571c87;
+}
+
+.customer-card.selected {
+  border-right: 5px solid #8820e9;
+  background-color: #f3e8ff;
+}
+
+.customer-details {
+  margin: 0;
+  width: 75%;
+  padding: 0px 20px;
+  /* text-align: center; */
+}
+
+.grid-customer-name{
+  margin: 0;
+  font-size: 2.5rem;
+  color: #7d21cf;
+}
+.grid-customer-title{
+  margin-top: 10px;
+  font-size: 1.5rem;
+  color: black;
+}
+.grid-customer-address{
+  margin-top: 10px;
+  font-size: 1.3rem;
+  color: rgb(35, 34, 34);
+}
+
+.photo-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 50px;
+  margin-top: 40px;
+}
+
+.photo-grid img {
+  width: 350px;
+  height: 350px;
+  object-fit: cover;
+  border-radius: 5px;
 }

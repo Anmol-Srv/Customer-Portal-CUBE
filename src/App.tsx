@@ -1,26 +1,26 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
+import CustomerList from './components/CustomerList';
+import CustomerDetails from './components/CustomerDetails';
+import { customers } from './constants/MOCK_DATA';
 
-function App() {
+const App: React.FC = () => {
+  const [selectedCustomer, setSelectedCustomer] = useState(customers[0]);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+    <div className="app">
+      <header>
+        <h1 className="heading">Customer Details Portal</h1>
       </header>
+      <div className="content">
+        <CustomerList
+          customers={customers}
+          onSelectCustomer={setSelectedCustomer}
+          selectedCustomerId={selectedCustomer.id}
+        />
+        <CustomerDetails key={selectedCustomer.id} customer={selectedCustomer} />
+      </div>
     </div>
   );
-}
+};
 
 export default App;
