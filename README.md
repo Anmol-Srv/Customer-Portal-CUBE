@@ -2,8 +2,6 @@
 
 This project is a simple single-page application built with React and TypeScript. It displays a list of customers on the left side, and when a customer is selected, their details along with a 3x3 grid of random images are shown on the right side. The images are fetched from the Unsplash API and are updated every 10 seconds.
 
-### Note : The project uses images fetched from `jsonplaceholder.typicode.com/photos` by default if no unsplash api key is provided, therefore you might not be able to see random images in the image grid and they will not update every 10 seconds.
-
 ## Features
 
 - Display a list of customers with their name and title.
@@ -49,7 +47,6 @@ Follow these steps to set up and run the project locally.
 ### Prerequisites
 
 - Node.js and npm installed on your machine.
-- Unsplash API Access Key (You can get one by registering on [Unsplash Developers](https://unsplash.com/developers)).
 
 ### Clone the Repository
 
@@ -62,13 +59,6 @@ Run the following command to clone the repository:
 Navigate to the project directory and run the following command to install the necessary dependencies:
 
 `npm install`
-
-### Setup Environment Variables
-
-Create a `.env` file in the root of the project directory and add your Unsplash API Access Key:
-
-`REACT_APP_UNSPLASH_ACCESS_KEY=your_access_key_here`
-
 
 ### Running the Project
 

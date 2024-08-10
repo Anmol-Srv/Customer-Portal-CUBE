@@ -15,16 +15,24 @@ const CustomerDetails: React.FC<CustomerDetailsProps> = ({ customer }) => {
   
   useEffect(() => {
     const fetchPhotos = async () => {
-      // const queries = ['nature', 'technology', 'city', 'people'];
-      // const query = queries[Math.floor(Math.random() * queries.length)];
+      const queries = ['nature', 'technology', 'city', 'people'];
+      const query = queries[Math.floor(Math.random() * queries.length)];
+      /*
+      I HAVE DIRECTLY EXPOSED THE API KEY FOR DEMONSTRATION PURPOSES AND SINCE THE API KEY IS REGISTERED IN DEMO MODE
+      */
+      const response = await fetch(
+        `https://api.unsplash.com/photos/random?count=9&client_id=oXpOEIqyS1XzwzOG1W4wIN9RCZnyIFRxTD9i-Q-OoqQ&w=150&h=150&query=${query}`
+      );
+
+
       // const response = await fetch(
       //   `https://api.unsplash.com/photos/random?count=9&client_id=${process.env.REACT_APP_UNSPLASH_ACCESS_KEY}&w=150&h=150&query=${query}`
       // );
-      const response = await fetch('https://jsonplaceholder.typicode.com/photos?_limit=9');
+      // const response = await fetch('https://jsonplaceholder.typicode.com/photos?_limit=9');
       
       const data = await response.json();
-      setPhotos(data.map((photo: any) => photo.url));
-      // setPhotos(data.map((photo: any) => photo.urls.small));
+      // setPhotos(data.map((photo: any) => photo.url));
+      setPhotos(data.map((photo: any) => photo.urls.small));
     };
 
     fetchPhotos();
