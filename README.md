@@ -1,46 +1,107 @@
-# Getting Started with Create React App
+# Customer Details Portal
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project is a simple single-page application built with React and TypeScript. It displays a list of customers on the left side, and when a customer is selected, their details along with a 3x3 grid of random images are shown on the right side. The images are fetched from the Unsplash API and are updated every 10 seconds.
 
-## Available Scripts
+### Note : The project uses images fetched from `jsonplaceholder.typicode.com/photos` by default if no unsplash api key is provided, therefore you might not be able to see random images in the image grid and they will not update every 10 seconds.
 
-In the project directory, you can run:
+## Features
 
-### `npm start`
+- Display a list of customers with their name and title.
+- Show detailed information for the selected customer, including a 3x3 grid of images.
+- Fetch new random images every 10 seconds.
+- Fetch new random images whenever a new customer is selected.
+- Responsive design with a simple and clean UI.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Project Structure
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+The project structure is organized as follows:
 
-### `npm test`
+```
+customer-portal/
+│
+├── public/
+│ ├── index.html
+│ └── ...
+│
+├── src/
+│ ├── components/
+│ │ ├── CustomerList.tsx
+│ │ ├── CustomerDetailstsx
+│ ├── constants/
+│ │ └── customers.ts
+│ │ └── MOCK_DATA.ts
+│ ├── App.tsx
+│ ├── index.tsx
+│ └── index.css
+│
+├── .env
+├── package.json
+├── package-lock.json
+└── README.md
+└── tsconfig.json
+```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
+## Installation
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Follow these steps to set up and run the project locally.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Prerequisites
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- Node.js and npm installed on your machine.
+- Unsplash API Access Key (You can get one by registering on [Unsplash Developers](https://unsplash.com/developers)).
 
-### `npm run eject`
+### Clone the Repository
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Run the following command to clone the repository:
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+`git clone https://github.com/Anmol-Srv/Customer-Portal-CUBE.git`
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+### Install Dependencies
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+Navigate to the project directory and run the following command to install the necessary dependencies:
 
-## Learn More
+`npm install`
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### Setup Environment Variables
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Create a `.env` file in the root of the project directory and add your Unsplash API Access Key:
+
+`REACT_APP_UNSPLASH_ACCESS_KEY=your_access_key_here`
+
+
+### Running the Project
+
+To start the development server, run:
+
+`npm start`
+
+This will start the application on `http://localhost:3000`.
+
+## Components
+
+### CustomerList
+
+This component is responsible for displaying the list of customers on the left side of the page. When a customer is selected, it triggers a callback to update the selected customer in the parent component.
+
+#### Props
+
+- `customers`: Array of customer objects.
+- `onSelectCustomer`: Function to handle customer selection.
+- `selectedCustomerId`: ID of the currently selected customer.
+
+### CustomerDetails
+
+This component displays detailed information about the selected customer, including their name, title, address, and a 3x3 grid of images. It fetches new images every 10 seconds and also when a new customer is selected.
+
+#### Props
+
+- `customer`: The currently selected customer object.
+
+### Utility Functions
+
+- `shuffleArray`: A utility function used to shuffle an array. This is used to shuffle the images before displaying them in the grid.
+
+## License
+
+This project is licensed under the MIT License - see the `LICENSE` file for details.
